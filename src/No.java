@@ -5,6 +5,7 @@ public class No {
 
     public No(String conteudo) {
         this.conteudo = conteudo;
-        filhoEsquerdo = filhoDireito = null;
+        filhoEsquerdo = null;
+        filhoDireito = null;
     }
 }
