@@ -22,4 +22,11 @@ public class Arvore {
         }
     }
 
+    public void searchPostOrder(No node) {
+        if (node != null) {
+            searchPostOrder(node.filhoEsquerdo);
+            searchPostOrder(node.filhoDireito);
+            System.out.println(node.value + "  ");
+        }
+    }
 }
