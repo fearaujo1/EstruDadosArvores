@@ -1,10 +1,10 @@
 public class No {
-    String conteudo;
+    int value;
     No filhoEsquerdo;
     No filhoDireito;
 
-    public No(String conteudo) {
-        this.conteudo = conteudo;
+    public No(int value) {
+        this.value = value;
         filhoEsquerdo = null;
         filhoDireito = null;
     }
