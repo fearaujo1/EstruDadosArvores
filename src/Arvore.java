@@ -13,4 +13,13 @@ public class Arvore {
             searchPreOrder(node.filhoDireito);
         }
     }
+
+    public void searchInOrder(No node) {
+        if(node != null) {
+            searchInOrder(node.filhoEsquerdo);
+            System.out.println(node.value + "  ");
+            searchInOrder(node.filhoDireito);
+        }
+    }
+
 }
