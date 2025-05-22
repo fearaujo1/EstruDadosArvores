@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Arvore {
     No node;
 
@@ -27,6 +30,25 @@ public class Arvore {
             searchPostOrder(node.filhoEsquerdo);
             searchPostOrder(node.filhoDireito);
             System.out.println(node.value + "  ");
+        }
+    }
+
+    public void searchInLevel(No node) {
+        if (node != null) {
+            Queue<No> fila = new LinkedList<>();
+            fila.add(node);
+
+            while (!fila.isEmpty()) {
+                No atual = fila.poll();
+                System.out.println(atual.value + "  ");
+
+                if(atual.filhoEsquerdo != null){
+                    fila.add(atual.filhoEsquerdo);
+                }
+                if(atual.filhoDireito != null){
+                    fila.add(atual.filhoDireito);
+                }
+            }
         }
     }
 }
