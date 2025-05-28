@@ -69,4 +69,18 @@ public class Arvore {
         }
         return contador;
     }
+
+    public void searchPreOrderIterativo(No node) {
+        Stack<No> pilha = new Stack<No>();
+        if (node != null) {
+            pilha.push(node);
+        }
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            System.out.println(atual.value + "  ");
+
+            if(atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+            if(atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+        }
+    }
 }
