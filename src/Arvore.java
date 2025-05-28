@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Arvore {
     No node;
@@ -50,5 +51,22 @@ public class Arvore {
                 }
             }
         }
+    }
+
+    public int contarNosIterativo(No node) {
+        Stack<No> pilha = new Stack<No>();
+        int contador = 0;
+
+        if (node != null) {
+            pilha.push(node);
+        }
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            contador++;
+            if (atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+        }
+        return contador;
     }
 }
