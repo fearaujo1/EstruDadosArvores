@@ -83,4 +83,19 @@ public class Arvore {
             if(atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
         }
     }
+
+    public void searchInOrderIterativo(No node) {
+        Stack<No> pilha = new Stack<No>();
+
+        while (node != null || !pilha.isEmpty()) {
+            if (node != null) {
+                pilha.push(node);
+                node = node.filhoEsquerdo;
+            } else {
+                No atual = pilha.pop();
+                System.out.println(atual.value + "  ");
+                node = atual.filhoDireito;
+            }
+        }
+    }
 }
