@@ -130,4 +130,14 @@ public class Arvore {
             if(atual.filhoDireito != null) fila.add(atual.filhoDireito);
         }
     }
+
+    public int contarNosFolhas(No node) {
+        if(node == null) {
+            return 0;
+        } else if (node.filhoEsquerdo == null && node.filhoDireito == null) {
+            return 1;
+        } else {
+            return contarNosFolhas(node.filhoEsquerdo) + contarNosFolhas(node.filhoDireito);
+        }
+    }
 }
