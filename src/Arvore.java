@@ -140,4 +140,19 @@ public class Arvore {
             return contarNosFolhas(node.filhoEsquerdo) + contarNosFolhas(node.filhoDireito);
         }
     }
+
+    public int contarNosFolhasIterativo(No node) {
+        Stack<No> pilha = new Stack<>();
+        if (node != null) {
+            pilha.push(node);
+        }
+        int contador = 0;
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            if (atual.filhoEsquerdo == null && atual.filhoDireito == null) contador++;
+            if (atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+        }
+        return contador;
+    }
 }
