@@ -1,5 +1,6 @@
 public class No {
     int value;
+    int fatorBalanceamento;
     No filhoEsquerdo;
     No filhoDireito;
 
@@ -7,5 +8,6 @@ public class No {
         this.value = value;
         filhoEsquerdo = null;
         filhoDireito = null;
+        fatorBalanceamento = 0;
     }
 }
