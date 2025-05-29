@@ -98,4 +98,22 @@ public class Arvore {
             }
         }
     }
+
+    public void searchPostOrderIterativo(No node) {
+        Stack<No> percorreArvore = new Stack<No>();
+        Stack<No> armazenaNos = new Stack<>();
+
+        percorreArvore.push(node);
+        while(!percorreArvore.isEmpty()) {
+            No atual = percorreArvore.pop();
+            armazenaNos.push(atual);
+            if(atual.filhoEsquerdo != null) percorreArvore.push(atual.filhoEsquerdo);
+            if(atual.filhoDireito != null) percorreArvore.push(atual.filhoDireito);
+        }
+
+        while (!armazenaNos.isEmpty()) {
+            No atual = armazenaNos.pop();
+            System.out.println(atual.value + "  ");
+        }
+    }
 }
