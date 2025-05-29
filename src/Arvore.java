@@ -116,4 +116,18 @@ public class Arvore {
             System.out.println(atual.value + "  ");
         }
     }
+
+    public void searchInLevelIterativo(No node) {
+        Queue<No> fila = new LinkedList<>();
+
+        if (node != null) {
+            fila.add(node);
+        }
+        while (!fila.isEmpty()) {
+            No atual = fila.remove();
+            System.out.println(atual.value + "  ");
+            if(atual.filhoEsquerdo != null) fila.add(atual.filhoEsquerdo);
+            if(atual.filhoDireito != null) fila.add(atual.filhoDireito);
+        }
+    }
 }
