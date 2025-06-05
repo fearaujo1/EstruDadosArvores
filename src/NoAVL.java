@@ -2,8 +2,8 @@ public class NoAVL {
     int value;
     int fatorBalanceamento;
     int altura;
-    No filhoEsquerdo;
-    No filhoDireito;
+    NoAVL filhoEsquerdo;
+    NoAVL filhoDireito;
 
     public NoAVL(int value) {
         this.value = value;

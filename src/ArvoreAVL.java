@@ -1,8 +1,5 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class ArvoreAVL {
-    No node;
+    NoAVL node;
 
     /*
     public int height(No node) {
@@ -18,11 +15,12 @@ public class ArvoreAVL {
     }
     */
 
-    public void updateHeightAndBalanceFactor(No node) {
+    public void updateHeightAndBalanceFactor(NoAVL node) {
         int heightLeft = (node.filhoEsquerdo != null) ? node.filhoEsquerdo.altura : 0;
         int heightRight = (node.filhoDireito != null) ? node.filhoDireito.altura : 0;
 
         node.altura = 1 + Math.max(heightLeft, heightRight);
         node.fatorBalanceamento = heightLeft - heightRight;
     }
+
 }
