@@ -99,4 +99,39 @@ public class ArvoreAVL {
         }
         return node;
     }
+
+    public NoAVL removeItem(NoAVL node, int valor) {
+        // Caso o nó seja null
+        if (node == null) return null;
+
+        // Percorre a árvore encontrando o Nó
+        if (valor < node.value) {
+            node.filhoEsquerdo = removeItem(node.filhoEsquerdo, valor);
+        } else if (valor > node.value) {
+            node.filhoDireito = removeItem(node.filhoDireito, valor);
+        } else {
+
+            // Caso o nó encontrado não tenha filhos
+            if (node.filhoEsquerdo == null && node.filhoDireito == null) {
+                return null;
+
+                // Caso o nó tenha um filho
+            } else if (node.filhoEsquerdo == null) {
+                return node.filhoDireito;
+            } else if (node.filhoDireito == null) {
+                return node.filhoEsquerdo;
+
+                // Caso o nó tenha 2 filhos
+            } else {
+                // Encontra menor valor da subArvore à direita (Regra da árvore binária de busca)
+                NoAVL sucessor = encontrarMenor(node.filhoDireito);
+                node.value = sucessor.value;
+                node.filhoDireito = removeItem(node.filhoDireito, valor);
+            }
+        }
+
+        // Atualiza a árvore e faz o balanceamento
+        updateHeightAndBalanceFactor(node);
+        return balance(node);
+    }
 }
