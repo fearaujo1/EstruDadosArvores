@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class ArvoreAVL {
     NoAVL node;
 
@@ -133,5 +136,23 @@ public class ArvoreAVL {
         // Atualiza a árvore e faz o balanceamento
         updateHeightAndBalanceFactor(node);
         return balance(node);
+    }
+
+    public void OrderAndPrintPreOrder(NoAVL node) {
+        Queue<Integer> fila = new LinkedList<>();
+
+        // Preenche a fila em pré-ordem
+        preencherPreOrdem(node, fila);
+
+        // Imprime os valores da fila
+        System.out.println("Pré-ordem com fila: " + fila);
+    }
+
+    private void preencherPreOrdem(NoAVL node, Queue<Integer> fila) {
+        if (node != null) {
+            fila.add(node.value);                        // Visita o nó atual
+            preencherPreOrdem(node.filhoEsquerdo, fila); // Percorre filho esquerdo
+            preencherPreOrdem(node.filhoDireito, fila);  // Percorre filho direito
+        }
     }
 }
