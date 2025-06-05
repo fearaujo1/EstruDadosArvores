@@ -23,4 +23,30 @@ public class ArvoreAVL {
         node.fatorBalanceamento = heightLeft - heightRight;
     }
 
+    public NoAVL rotacaoDireita(NoAVL noDesbalanceado) {
+        NoAVL noParaCima = noDesbalanceado.filhoEsquerdo;
+        NoAVL subArvoreTemporaria = noParaCima.filhoDireito;
+
+        noParaCima.filhoDireito = noDesbalanceado;
+        noDesbalanceado.filhoEsquerdo = subArvoreTemporaria;
+
+        updateHeightAndBalanceFactor(noDesbalanceado);
+        updateHeightAndBalanceFactor(noParaCima);
+
+        return noParaCima;
+    }
+
+    public NoAVL rotacaoEsquerda(NoAVL noDesbalanceado) {
+        NoAVL noParaCima = noDesbalanceado.filhoDireito;
+        NoAVL subArvoreTemporaria = noParaCima.filhoEsquerdo;
+
+        noParaCima.filhoEsquerdo = noDesbalanceado;
+        noDesbalanceado.filhoDireito = subArvoreTemporaria;
+
+        updateHeightAndBalanceFactor(noDesbalanceado);
+        updateHeightAndBalanceFactor(noParaCima);
+
+        return noParaCima;
+    }
+
 }
