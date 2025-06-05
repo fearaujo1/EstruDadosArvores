@@ -49,4 +49,32 @@ public class ArvoreAVL {
         return noParaCima;
     }
 
+    public NoAVL balance(NoAVL node) {
+        updateHeightAndBalanceFactor(node);
+
+        // Caso haja desbalanceio à esquerda
+        if (node.fatorBalanceamento > 1) {
+            if (node.filhoEsquerdo.fatorBalanceamento >= 0) {
+                // Rotação simples à direita
+                return rotacaoDireita(node);
+            } else {
+                // Rotação dupla à direita
+                node.filhoEsquerdo = rotacaoEsquerda(node.filhoEsquerdo);
+                return rotacaoDireita(node);
+            }
+        }
+
+        // Caso haja desbalanceio à direita
+        if (node.fatorBalanceamento < -1) {
+            if (node.filhoDireito.fatorBalanceamento <= 0) {
+                // Rotação simples à esquerda
+                return rotacaoEsquerda(node);
+            } else {
+                // Rotação dupla à esquerda
+                node.filhoDireito = rotacaoDireita(node.filhoDireito);
+                return rotacaoEsquerda(node);
+            }
+        }
+        return node;
+    }
 }
