@@ -19,7 +19,7 @@ public class Arvore {
     }
 
     public void searchInOrder(No node) {
-        if(node != null) {
+        if (node != null) {
             searchInOrder(node.filhoEsquerdo);
             System.out.println(node.value + "  ");
             searchInOrder(node.filhoDireito);
@@ -43,10 +43,10 @@ public class Arvore {
                 No atual = fila.poll();
                 System.out.println(atual.value + "  ");
 
-                if(atual.filhoEsquerdo != null){
+                if (atual.filhoEsquerdo != null) {
                     fila.add(atual.filhoEsquerdo);
                 }
-                if(atual.filhoDireito != null){
+                if (atual.filhoDireito != null) {
                     fila.add(atual.filhoDireito);
                 }
             }
@@ -79,8 +79,8 @@ public class Arvore {
             No atual = pilha.pop();
             System.out.println(atual.value + "  ");
 
-            if(atual.filhoDireito != null) pilha.push(atual.filhoDireito);
-            if(atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+            if (atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
         }
     }
 
@@ -104,11 +104,11 @@ public class Arvore {
         Stack<No> armazenaNos = new Stack<>();
 
         percorreArvore.push(node);
-        while(!percorreArvore.isEmpty()) {
+        while (!percorreArvore.isEmpty()) {
             No atual = percorreArvore.pop();
             armazenaNos.push(atual);
-            if(atual.filhoEsquerdo != null) percorreArvore.push(atual.filhoEsquerdo);
-            if(atual.filhoDireito != null) percorreArvore.push(atual.filhoDireito);
+            if (atual.filhoEsquerdo != null) percorreArvore.push(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) percorreArvore.push(atual.filhoDireito);
         }
 
         while (!armazenaNos.isEmpty()) {
@@ -126,13 +126,13 @@ public class Arvore {
         while (!fila.isEmpty()) {
             No atual = fila.remove();
             System.out.println(atual.value + "  ");
-            if(atual.filhoEsquerdo != null) fila.add(atual.filhoEsquerdo);
-            if(atual.filhoDireito != null) fila.add(atual.filhoDireito);
+            if (atual.filhoEsquerdo != null) fila.add(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) fila.add(atual.filhoDireito);
         }
     }
 
     public int contarNosFolhas(No node) {
-        if(node == null) {
+        if (node == null) {
             return 0;
         } else if (node.filhoEsquerdo == null && node.filhoDireito == null) {
             return 1;
