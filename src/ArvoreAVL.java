@@ -77,4 +77,19 @@ public class ArvoreAVL {
         }
         return node;
     }
+
+    public NoAVL insertItem(NoAVL node, int valor) {
+        if (node == null) node = new NoAVL(valor);
+
+        if (valor < node.value) {
+            node.filhoEsquerdo = insertItem(node.filhoEsquerdo, valor);
+        } else if (valor > node.value) {
+            node.filhoDireito = insertItem(node.filhoDireito, valor);
+        } else {
+            return node;
+        }
+
+        updateHeightAndBalanceFactor(node);
+        return balance(node);
+    }
 }
