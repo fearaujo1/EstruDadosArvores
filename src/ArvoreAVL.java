@@ -92,4 +92,11 @@ public class ArvoreAVL {
         updateHeightAndBalanceFactor(node);
         return balance(node);
     }
+
+    private NoAVL encontrarMenor (NoAVL node){
+        while (node.filhoEsquerdo != null) {
+            node = node.filhoEsquerdo;
+        }
+        return node;
+    }
 }
